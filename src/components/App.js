@@ -6,12 +6,13 @@ import DashboardPage from "../pages/dashboard";
 import OffersPage from "../pages/offers";
 import RegisterPage from "../pages/register";
 import SettingsPage from "../pages/setting";
+import Modal from './partComponents/Modal';
 import history from '../history';
 
 class App extends Component {
     render() {
         return (
-            <div className="">
+            <div className="ui container">
                 <Router history={history}>
                     <Fragment>
                         <Header/>
@@ -21,6 +22,7 @@ class App extends Component {
                             <Route path={'/offers'} exact component={OffersPage}/>
                             <Route path={'/register'} exact component={RegisterPage}/>
                             <Route path={'/settings'} exact component={SettingsPage}/>
+                            <Route path={'/login'} exact component={Modal}/>
                         </Switch>
                     </Fragment>
                 </Router>

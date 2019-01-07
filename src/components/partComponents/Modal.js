@@ -1,16 +1,16 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
+import history from '../../history';
 
-const Modal = () => {
-    const Styles = {
-        top: '0',
-        left: '0',
-        height: '100vh',
-        position: 'absolute',
-        width: '100vw'
-    };
+const Modal = (props) => {
+    console.log('called Modal');
+
     return (
-        <div style={Styles}>Modal</div>
+        <div className="modal" >
+            <div className={'modal__background'}>
+                <p >heel</p>
+            </div>
+        </div>
     )
 };
 
