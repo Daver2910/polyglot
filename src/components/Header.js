@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LanguageSelector from './partComponents/LanguageSelector'
 import Modal from '../components/partComponents/Modal';
 
 class Header extends Component {
@@ -21,6 +22,7 @@ class Header extends Component {
                     <Link className={'navbar-logo'} to={'/'}>Logo</Link>
                 </div>
                 <div className={'right align menu'}>
+
                     <Link className={'button green ui'} to={'/register'}>Sign up</Link>
                     <button onClick={ () => Modal(this.ModalContent) } className={'button red ui'}>Login</button>
                 </div>
