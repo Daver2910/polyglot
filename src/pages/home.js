@@ -5,7 +5,9 @@ import axios from 'axios';
 class HomePage extends Component {
     constructor(props){
         super(props);
-
+        this.state = {
+            isDone: false
+        }
         this.uploadInput = React.createRef();
     };
 
@@ -14,12 +16,24 @@ class HomePage extends Component {
       let file = this.uploadInput.current.files[0];
       console.log(this.uploadInput.current);
       console.dir(file);
-      axios.post('http://127.0.0.1:8000/file-upload/', file, {
+      axios({
+          url: 'http://127.0.0.1:4000/products/1',
+          method: 'get',
           headers: {
-              'Content-Type': 'application/json'
-
+              'Content-Type': 'application/json',
+              "Accept": "application/json",
+              "X-Requested-With": "XMLHttpRequest",
+              "Cache-Control": "no-cache,no-store"
           }
-      });
+      })
+          // .then(() => {
+          //     this.setState({
+          //         isDone: true
+          //     })
+          // })
+          // .catch(err => {
+          //     console.log(err)
+          // })
     };
 
     render () {
@@ -29,7 +43,14 @@ class HomePage extends Component {
                 <br/>
                 <input type="file" name={'file-upload'} ref={this.uploadInput}/>
                 <br/>
+                <label htmlFor="noting">Upload file</label>
+                <br/>
+                <input type="text" name="noting"/>
+                <br/>
                 <button onClick={ e => this.onSubmit(e) }>Send file</button>
+                <br/>
+                <br/>
+                { this.state.isDone && <p>Done</p>}
             </div>
         )
     }
